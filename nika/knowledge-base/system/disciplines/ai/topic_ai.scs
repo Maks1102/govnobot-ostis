@@ -12,7 +12,10 @@ topic_ai
 <- concept_discipline;
 => nrel_decomposition: <
     topic_1_ai_concepts;
-    topic_2_ai_directions
+    topic_2_ai_directions;
+    topic_math_apparate;
+    topic_theory;
+    topic_neural_network
 >;
 => nrel_definition:
     [Искусственный интеллект — дисциплина, изучающая модели, методы и средства разработки интеллектуальных систем.]

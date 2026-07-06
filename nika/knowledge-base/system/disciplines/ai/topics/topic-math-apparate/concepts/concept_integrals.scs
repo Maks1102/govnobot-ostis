@@ -1,0 +1,23 @@
+concept_integrals
+=> nrel_main_idtf:
+    [интегралы]
+    (*
+        <- lang_ru;;
+    *);
+=> nrel_idtf:
+    [Интегралы (база)]
+    (*
+        <- lang_ru;;
+    *);
+<- concept;
+=> nrel_definition:
+    [<b>Интеграл</b> — это математический инструмент для сложения бесконечного множества очень маленьких величин. Проще всего представить его как супер-калькулятор, который находит общую площадь или объем объекта с кривыми, неровными краями там, где обычные линейки и формулы не работают.]
+    (*
+        <- concept_definition;;
+    *);
+=> nrel_explanation:
+    [Слово происходит от латинского <i>integer</i> (целый). Он словно «собирает» объект по частям.<br/><br/>📄 <a href='https://docs.google.com/document/d/1v9F9L4joqQy-l79fpOsUlpgBy1GcZrwk/edit?usp=sharing&ouid=114201395375486892241&rtpof=true&sd=true'>Конспект</a><br/>📝 <a href='https://docs.google.com/document/d/1ZlZkUoWcYs8X_v6bvxgsxZD5neSJHL7T/edit?usp=sharing&ouid=114201395375486892241&rtpof=true&sd=true'>Задачи</a>]
+    (*
+        <- concept_explanation;;
+    *);;
+

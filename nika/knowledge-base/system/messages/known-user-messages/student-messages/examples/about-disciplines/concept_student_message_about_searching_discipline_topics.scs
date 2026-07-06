@@ -15,20 +15,27 @@
     rrel_condition_template: {
         rrel_init_template: {
             rrel_template: [*
-                @input_param1 = (.._discipline <-_ concept_discipline);;
-                @output_param1 = (nrel_decomposition _-> (.._discipline _=> .._topics));;
-                @sort_param = (.._topics _-> .._topic);;
-                @output_param1 = @sort_param;;
-                @message_template_param1 = @input_param1;;
-                @message_template_param2 = @sort_param;;
+                .._discipline <-_ concept_discipline;;
+                @output_param1 = (nrel_decomposition _-> (.._discipline _=> .._topics_set));;
+                @message_template_param1 = .._discipline;;
             *];
-            rrel_template_input_params: {
-                @input_param1
-            };
             rrel_template_output_params: {
                 @output_param1
             }
-        } (* <- nrel_search_set_template;; *)
+        } (* <- nrel_search_set_template;; *);
+        rrel_next_template: {
+            rrel_init_template: {
+                rrel_template: [*
+                    @output_param1 = (nrel_decomposition _-> (.._discipline _=> .._topics_set));;
+                    @sort_param = (.._topics_set _-> .._topic);;
+                    @message_template_param2 = @sort_param;;
+                *];
+                rrel_sort_param: @sort_param;
+                rrel_template_input_params: {
+                    @output_param1
+                }
+            } (* <- nrel_search_set_template;; *)
+        } (* <- nrel_fixed_search_strategy_template;; *)
     } (* <- nrel_fixed_search_strategy_template;; *);
     rrel_reply_template: {
 		rrel_message_template: @discipline_topics_found_reply_template;
@@ -75,7 +82,7 @@
 };;
 @if_discipline_not_specified_production <- nrel_reply_production;;
 
-// ---- Message topic class
+// --- Message topic class
 
 concept_student_message_about_searching_discipline_topics
 <- sc_node_class;
@@ -103,6 +110,7 @@ concept_student_message_about_searching_discipline_topics
     (*
         <- concept_example;;
     *);
+=> nrel_example:
     [Пришли перечень тем по ИИ]
     (*
         <- concept_example;;

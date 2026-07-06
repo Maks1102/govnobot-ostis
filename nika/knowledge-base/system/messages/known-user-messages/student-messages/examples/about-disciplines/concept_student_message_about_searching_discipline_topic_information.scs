@@ -21,17 +21,14 @@ ${foreach.item.index}) ${3}
     rrel_condition_template: {
         rrel_init_template: {
             rrel_template: [*
-                @input_param1 = (.._topic <-_ concept_discipline_topic);;
-                @message_template_param1 = @input_param1;;
+                .._topic <-_ concept_discipline_topic;;
+                @message_template_param1 = .._topic;;
                 @output_param1 = (.._relation _-> (.._topic _=> .._information_set));;
-                @message_template_param2 = (.._relation <-_ concept_quasibinary_relation);;
+                @message_template_param2 = (.._relation <-_ concept_binary_relation);;
                 @sort_param = (.._relation <-_ basic_specification_objects_order);;
             *];
             rrel_sort_param:
                 @sort_param;
-            rrel_template_input_params: {
-                @input_param1
-            };
             rrel_template_output_params: {
                 @output_param1
             }
@@ -84,11 +81,8 @@ ${foreach.item.index}) ${3}
 @if_discipline_topic_information_not_found_production = {
     rrel_condition_template: {
         rrel_template: [*
-            @input_param1 = (.._concept <-_ concept_discipline_topic);;
-        *];
-        rrel_template_input_params: {
-            @input_param1
-        }
+            .._concept <-_ concept_discipline_topic;;
+        *]
     } (* <- nrel_search_template;; *);
     rrel_reply_template: {
 		rrel_message_template: @discipline_topic_information_not_found_reply_template
@@ -122,7 +116,7 @@ ${foreach.item.index}) ${3}
 };;
 @if_discipline_topic_not_found_production <- nrel_reply_production;;
 
-// ---- Message topic class
+// --- Message topic class
 
 concept_student_message_about_searching_discipline_topic_information
 <- sc_node_class;
@@ -158,7 +152,7 @@ concept_student_message_about_searching_discipline_topic_information
 => nrel_message_keywords: [
     пришли информацию по;
     скинь информацию по;
-    что ты знаешь по теме
+    что ты знаешь по
 ];
 => nrel_message_patterns: [
 ];

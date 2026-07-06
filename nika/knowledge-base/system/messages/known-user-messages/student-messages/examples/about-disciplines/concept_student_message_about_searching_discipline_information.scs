@@ -17,17 +17,14 @@ ${concept_purpose}
 @if_discipline_information_found_production = {
     rrel_condition_template: {
         rrel_template: [*
-            @input_param1 = (.._discipline <-_ concept_discipline);;
+            .._discipline <-_ concept_discipline;;
             .._discipline _=> nrel_definition:: .._definition;;
             .._definition <-_ concept_definition;;
             .._discipline _=> nrel_explanation:: .._explanation;;
             .._explanation <-_ concept_explanation;;
             .._discipline _=> nrel_purpose:: .._purpose;;
             .._purpose <-_ concept_purpose;;
-        *];
-        rrel_template_input_params: {
-            @input_param1
-        }
+        *]
     } (* <- nrel_search_template;; *);
     rrel_reply_template: {
 		rrel_message_template: @discipline_information_found_reply_template;
@@ -57,11 +54,8 @@ ${concept_purpose}
 @if_discipline_information_not_found_production = {
     rrel_condition_template: {
         rrel_template: [*
-            @input_param1 = (.._concept <-_ concept_discipline);;
-        *];
-        rrel_template_input_params: {
-            @input_param1
-        }
+            .._concept <-_ concept_discipline;;
+        *]
     } (* <- nrel_search_template;; *);
     rrel_reply_template: {
 		rrel_message_template: @discipline_information_not_found_reply_template
@@ -95,7 +89,7 @@ ${concept_purpose}
 };;
 @if_discipline_not_found_production <- nrel_reply_production;;
 
-// ---- Message topic class
+// --- Message topic class
 
 concept_student_message_about_searching_discipline_information
 <- sc_node_class;

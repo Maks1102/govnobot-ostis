@@ -112,7 +112,7 @@ ${concept_example}
 };;
 @if_concept_not_found_production <- nrel_reply_production;;
 
-// ---- Message topic class
+// --- Message topic class
 
 concept_student_message_about_searching_concept_examples
 <- sc_node_class;

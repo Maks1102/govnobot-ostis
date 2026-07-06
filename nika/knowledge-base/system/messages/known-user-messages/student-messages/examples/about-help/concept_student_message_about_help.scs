@@ -6,7 +6,7 @@
 
 @help_skills_found_reply_template = [🛟 Я могу помочь тебе в <b>следующих задачах</b>:
 #foreach
-• <u>${concept_purpose}</u> ⚙️:
+• <u>${concept_skill}</u> ⚙️:
 
     ❓ Примеры вопросов:
     #foreach
@@ -30,7 +30,7 @@
         rrel_next_template: {
             rrel_init_template: {
                 rrel_template: [*
-                    @input_param1 = (.._skill <-_ concept_purpose);;
+                    @input_param1 = (.._skill <-_ concept_skill);;
                     nrel_corresponding_skill _-> (.._message_class _=> .._skill);;
                     nrel_inclusion _-> (concept_student_message _=> .._message_class);;
                     nrel_example _-> (.._example <=_ .._message_class);;
